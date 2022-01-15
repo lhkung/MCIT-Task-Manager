@@ -18,7 +18,10 @@ def getTaskDetail(request, pk):
 def createTask(request):
     data = request.data
     task = Task.objects.create(
-        body=data['body']
+        body=data['body'],
+        title=data['title'],
+        category=data['category'],
+        priority=data['priority']
     )
     serializer = TaskSerializer(task, many=False)
     return Response(serializer.data)
