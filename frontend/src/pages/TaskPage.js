@@ -67,11 +67,16 @@ const TaskPage = ({ match, history }) => {
         history.push('/')
     }
 
-    let handleChange = (title, body, category, priority) => {
-        setTask(task => ({ ...task, 'title': title }))
-        setTask(task => ({ ...task, 'body': body }))
-        setTask(task => ({ ...task, 'category': category }))
-        setTask(task => ({ ...task, 'priority': priority }))
+    let handleChange = (input, inputType) => {
+        if( inputType == "body" ){
+            setTask(task => ({ ...task, 'body': input }))
+        } else if ( inputType == "title" ) {
+            setTask(task => ({ ...task, 'title': input }))
+        } else if ( inputType == "category" ) {
+            setTask(task => ({ ...task, 'category': input }))
+        } else if ( inputType == "priority" ) {
+            setTask(task => ({ ...task, 'priority': input }))
+        }
         console.log('Handle Change:', task)
     }
 
@@ -90,17 +95,17 @@ const TaskPage = ({ match, history }) => {
             </div>
             <div className="task-detail">
                 <h1>Title</h1>
-                <textarea className='task-textarea-title' onChange={(e) => { handleChange(e.target.value) }} value={task?.title}></textarea>
+                <textarea className='task-textarea-title' onChange={(e) => { handleChange(e.target.value, "title") }} value={task?.title}></textarea>
             </div>
 
             <div className="task-detail">
                 <h1>Content</h1>
-                <textarea onChange={(e) => { handleChange(e.target.value) }} value={task?.body}></textarea>
+                <textarea onChange={(e) => { handleChange(e.target.value, "body") }} value={task?.body}></textarea>
             </div>
 
             <div className="task-detail">
                 <h1>Category</h1>
-                <select className="task-droplist" onChange={(e) => { handleChange(e.target.value) }} value={task?.category}>
+                <select className="task-droplist" onChange={(e) => { handleChange(e.target.value, "category") }} value={task?.category}>
                     <option value="To-do">To do</option>
                     <option value="Ongoing">Ongoing</option>
                     <option value="Completed">Completed</option>
@@ -110,7 +115,7 @@ const TaskPage = ({ match, history }) => {
 
             <div className="task-detail">
                 <h1>Priority</h1>
-                <select className="task-droplist" onChange={(e) => { handleChange(e.target.value) }} value={task?.priority}>
+                <select className="task-droplist" onChange={(e) => { handleChange(e.target.value, "priority") }} value={task?.priority}>
                     <option value="Urgent">Urgent</option>
                     <option value="Semi-urgent">Semi-urgent</option>
                     <option value="Non-urgent">Non-urgent</option>
