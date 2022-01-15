@@ -59,7 +59,7 @@ const TaskPage = ({ match, history }) => {
             deleteTask()
         } else if (taskId !== 'new') {
             updateTask()
-        } else if (taskId === 'new' && task.body !== null) {
+        } else if (taskId === 'new' && task.body == '' && task.title == '') {
             createTask()
         }
         history.push('/')
