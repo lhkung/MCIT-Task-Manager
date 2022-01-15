@@ -158,6 +158,7 @@ a {
 .tasks-column {
   padding-left: 10px;
   padding-right: 10px;
+  width: 25%;
 }
 
 .tasks-list {
