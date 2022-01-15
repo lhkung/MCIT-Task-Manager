@@ -30,22 +30,19 @@ let getContent = (task) => {
 
 
 const ListItem = ({ task }, category) => {
-    if (task.category === category)
-        return (
-            <Link to={`/task/${task.id}`}>
-                <div className="tasks-list-item" >
-                    <h3>{getBody(task)}</h3>
-                    <p><span>{getTime(task)}</span>{getContent(task)}</p>
-                </div>
+    return (
+        <Link to={`/task/${task.id}`}>
+            <div className="tasks-list-item" >
+                <h3>{getBody(task)}</h3>
+                <p><span>{getTime(task)}</span>{getContent(task)}</p>
+            </div>
 
-            </Link>
+        </Link>
 
 
-        )
+    )
 
-    else {
-        return <h1>yeet</h1>
-    }
+
 
 }
 
