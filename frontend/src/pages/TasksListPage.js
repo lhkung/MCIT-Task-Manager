@@ -11,6 +11,15 @@ const TasksListPage = () => {
         getTasks()
     }, [])
 
+    const TasksLength = (tasks, category) => {
+        let count = 0;
+        tasks.map((task, index) => {
+            if (task.category === category) {
+                count++;
+            }
+        })
+        return count;
+    }
 
     let getTasks = async () => {
 
@@ -25,7 +34,7 @@ const TasksListPage = () => {
             <div className="tasks-column">
                 <div className="tasks-header">
                     <h2 className="tasks-title">&#9782;To do</h2>
-                    <p className="tasks-count">{tasks.length}</p>
+                    <p className="tasks-count">{TasksLength(tasks, "To-do")}</p>
                 </div>
                 <div className="tasks-list">
                     {tasks.map((task, index) => {
@@ -43,7 +52,7 @@ const TasksListPage = () => {
             <div className="tasks-column">
                 <div className="tasks-header">
                     <h2 className="tasks-title">&#9782; Ongoing</h2>
-                    <p className="tasks-count">{tasks.length}</p>
+                    <p className="tasks-count">{TasksLength(tasks, "Ongoing")}</p>
                 </div>
                 <div className="tasks-list">
                     {tasks.map((task, index) => {
@@ -61,7 +70,7 @@ const TasksListPage = () => {
             <div className="tasks-column">
                 <div className="tasks-header">
                     <h2 className="tasks-title">&#9782; Completed</h2>
-                    <p className="tasks-count">{tasks.length}</p>
+                    <p className="tasks-count">{TasksLength(tasks, "Completed")}</p>
                 </div>
                 <div className="tasks-list">
                     {tasks.map((task, index) => {
@@ -79,7 +88,7 @@ const TasksListPage = () => {
             <div className="tasks-column">
                 <div className="tasks-header">
                     <h2 className="tasks-title">&#9782; Reviewed</h2>
-                    <p className="tasks-count">{tasks.length}</p>
+                    <p className="tasks-count">{TasksLength(tasks, "Reviewed")}</p>
                 </div>
                 <div className="tasks-list">
                     {tasks.map((task, index) => {

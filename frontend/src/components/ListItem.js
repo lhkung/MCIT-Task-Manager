@@ -57,7 +57,7 @@ const ListItem = ({ task }) => {
     return (
         <Link to={`/task/${task.id}`}>
             <div className="tasks-list-item" >
-                <h3>{getTitle(task)}</h3>
+                <h1>{getTitle(task)}</h1>
                 <h3>{getBody(task)}</h3>
                 <h3>{getPriority(task)}</h3>
                 <p><span>{getTime(task)}</span>{getContent(task)}</p>

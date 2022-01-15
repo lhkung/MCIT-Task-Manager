@@ -4,7 +4,7 @@ from .serializers import TaskSerializer
 
 
 def getTasksList(request):
-    order_by_list = ['priority', 'created','title']
+    order_by_list = ['priority', 'created', 'title']
     tasks = Task.objects.all().order_by(*order_by_list)
     serializer = TaskSerializer(tasks, many=True)
     return Response(serializer.data)
@@ -26,6 +26,7 @@ def createTask(request):
     )
     serializer = TaskSerializer(task, many=False)
     return Response(serializer.data)
+
 
 def updateTask(request, pk):
     data = request.data
