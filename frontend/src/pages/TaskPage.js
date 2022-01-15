@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom'
 const TaskPage = ({ match, history }) => {
 
     let taskId = match.params.id
-    let [task, setTask] = useState({ title: '', body: '', category: 'To-do', priority: 'Urgent' })
-
+    let [task, setTask] = useState({ category: 'To-do', priority: 'Urgent' })
 
     useEffect(() => {
         getTask()
@@ -55,24 +54,24 @@ const TaskPage = ({ match, history }) => {
 
     let handleSubmit = () => {
         console.log('NOTE:', task)
-        if (taskId !== 'new' && task.body == '' && task.title == '') {
+        if (taskId !== 'new' && (task.body === '' || task.title === '')) {
             deleteTask()
         } else if (taskId !== 'new') {
             updateTask()
-        } else if (taskId === 'new' && task.body == '' && task.title == '') {
+        } else if (taskId === 'new' && task.body !== '' && task.title !== '') {
             createTask()
         }
         history.push('/')
     }
 
     let handleChange = (input, inputType) => {
-        if (inputType == "body") {
+        if (inputType === "body") {
             setTask(task => ({ ...task, 'body': input }))
-        } else if (inputType == "title") {
+        } else if (inputType === "title") {
             setTask(task => ({ ...task, 'title': input }))
-        } else if (inputType == "category") {
+        } else if (inputType === "category") {
             setTask(task => ({ ...task, 'category': input }))
-        } else if (inputType == "priority") {
+        } else if (inputType === "priority") {
             setTask(task => ({ ...task, 'priority': input }))
         }
         console.log('Handle Change:', task)

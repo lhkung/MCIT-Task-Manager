@@ -30,7 +30,7 @@ const TasksListPage = () => {
                 <div className="tasks-list">
                     {tasks.map((task, index) => (
                         <div className='task-todo'>
-                            <ListItem key={index} task={task} />
+                            <ListItem category="To-do" key={index} task={task} />
                         </div>
                     ))}
                 </div>
@@ -44,7 +44,7 @@ const TasksListPage = () => {
                 <div className="tasks-list">
                     {tasks.map((task, index) => (
                         <div className='task-ongoing'>
-                            <ListItem key={index} task={task} />
+                            <ListItem category="On-going" key={index} task={task} />
                         </div>
                     ))}
                 </div>
@@ -58,7 +58,7 @@ const TasksListPage = () => {
                 <div className="tasks-list">
                     {tasks.map((task, index) => (
                         <div className='task-completed'>
-                            <ListItem key={index} task={task} />
+                            <ListItem category="Completed" key={index} task={task} />
                         </div>
                     ))}
                 </div>
@@ -72,7 +72,7 @@ const TasksListPage = () => {
                 <div className="tasks-list">
                     {tasks.map((task, index) => (
                         <div className='task-reviewed'>
-                            <ListItem key={index} task={task} />
+                            <ListItem data-category="Reviewed" key={index} task={task} />
                         </div>
                     ))}
                 </div>
