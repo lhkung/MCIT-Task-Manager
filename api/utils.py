@@ -4,7 +4,8 @@ from .serializers import TaskSerializer
 
 
 def getTasksList(request):
-    tasks = Task.objects.all().order_by('-updated')
+    order_by_list = ['priority', 'created','title']
+    tasks = Task.objects.all().order_by(*order_by_list)
     serializer = TaskSerializer(tasks, many=True)
     return Response(serializer.data)
 
