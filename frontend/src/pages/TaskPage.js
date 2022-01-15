@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom'
 const TaskPage = ({ match, history }) => {
 
     let taskId = match.params.id
-    let [task, setTask] = useState(null)
-    let [category, setCategory] = useState(null)
-    let [priority, setPriority] = useState(null)
+    let [task, setTask] = useState({ title: '', body: '', category: 'To-do', priority: 'Urgent' })
 
 
     useEffect(() => {
@@ -68,13 +66,13 @@ const TaskPage = ({ match, history }) => {
     }
 
     let handleChange = (input, inputType) => {
-        if( inputType == "body" ){
+        if (inputType == "body") {
             setTask(task => ({ ...task, 'body': input }))
-        } else if ( inputType == "title" ) {
+        } else if (inputType == "title") {
             setTask(task => ({ ...task, 'title': input }))
-        } else if ( inputType == "category" ) {
+        } else if (inputType == "category") {
             setTask(task => ({ ...task, 'category': input }))
-        } else if ( inputType == "priority" ) {
+        } else if (inputType == "priority") {
             setTask(task => ({ ...task, 'priority': input }))
         }
         console.log('Handle Change:', task)
