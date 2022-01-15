@@ -28,11 +28,15 @@ const TasksListPage = () => {
                     <p className="tasks-count">{tasks.length}</p>
                 </div>
                 <div className="tasks-list">
-                    {tasks.map((task, index) => (
-                        <div className='task-todo'>
-                            <ListItem category="To-do" key={index} task={task} />
-                        </div>
-                    ))}
+                    {tasks.map((task, index) => {
+                        if (task.category === "To-do") {
+                            return (
+                                <div className='task-todo'>
+                                    <ListItem key={index} task={task} />
+                                </div>
+                            )
+                        }
+                    })}
                 </div>
             </div>
 
@@ -42,11 +46,15 @@ const TasksListPage = () => {
                     <p className="tasks-count">{tasks.length}</p>
                 </div>
                 <div className="tasks-list">
-                    {tasks.map((task, index) => (
-                        <div className='task-ongoing'>
-                            <ListItem category="On-going" key={index} task={task} />
-                        </div>
-                    ))}
+                    {tasks.map((task, index) => {
+                        if (task.category === "Ongoing") {
+                            return (
+                                <div className='task-ongoing'>
+                                    <ListItem key={index} task={task} />
+                                </div>
+                            )
+                        }
+                    })}
                 </div>
             </div>
 
@@ -56,11 +64,15 @@ const TasksListPage = () => {
                     <p className="tasks-count">{tasks.length}</p>
                 </div>
                 <div className="tasks-list">
-                    {tasks.map((task, index) => (
-                        <div className='task-completed'>
-                            <ListItem category="Completed" key={index} task={task} />
-                        </div>
-                    ))}
+                    {tasks.map((task, index) => {
+                        if (task.category === "Completed") {
+                            return (
+                                <div className='task-completed'>
+                                    <ListItem key={index} task={task} />
+                                </div>
+                            )
+                        }
+                    })}
                 </div>
             </div>
 
@@ -70,11 +82,15 @@ const TasksListPage = () => {
                     <p className="tasks-count">{tasks.length}</p>
                 </div>
                 <div className="tasks-list">
-                    {tasks.map((task, index) => (
-                        <div className='task-reviewed'>
-                            <ListItem data-category="Reviewed" key={index} task={task} />
-                        </div>
-                    ))}
+                    {tasks.map((task, index) => {
+                        if (task.category === "Reviewed") {
+                            return (
+                                <div className='task-reviewed'>
+                                    <ListItem key={index} task={task} />
+                                </div>
+                            )
+                        }
+                    })}
                 </div>
                 <AddButton />
             </div>

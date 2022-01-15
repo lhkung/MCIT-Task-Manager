@@ -29,7 +29,7 @@ let getContent = (task) => {
 }
 
 
-const ListItem = ({ task }, category) => {
+const ListItem = ({ task }) => {
     return (
         <Link to={`/task/${task.id}`}>
             <div className="tasks-list-item" >
