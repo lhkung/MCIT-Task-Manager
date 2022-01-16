@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
 import { Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const ProjectPage = ({ match, history }) => {
 
     let projectId = match.params.id
     console.log(projectId)
-    let [project, setProject] = useState(null)
+    let [project, setProject] = useState({ project: '', description: '' })
 
     useEffect(() => {
         getProject()
@@ -89,7 +90,7 @@ const ProjectPage = ({ match, history }) => {
             </div>
             <div className="task-detail">
                 <h5>Project Name</h5>
-                <textarea className='task-textarea-title' onChange={(e) => { handleChange(e.target.value, "project") }} value={project?.project}></textarea>
+                <textarea defaultValue="" className='task-textarea-title' onChange={(e) => { handleChange(e.target.value, "project") }} value={project?.project}></textarea>
             </div>
 
             <div className="task-detail">
