@@ -131,13 +131,6 @@ const TaskPage = ({ match, history }) => {
                     <option value="4">Stretch Goal</option>
                 </select>
             </div>
-
-            <div className="task-detail">
-                <h1>Ownership</h1>
-            </div>
-            <div className="task-detail">
-                <h5>Deadline</h5>
-            </div>
         </div>
 
     )

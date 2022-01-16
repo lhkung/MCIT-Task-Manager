@@ -29,25 +29,22 @@ const ProjectsListPage = () => {
     }
 
     return (
-        <div className="tasks-list-all">
-
-            <div className="tasks-column">
-                <div className="tasks-header">
-                    <h2 className="tasks-title">&#9782;All projects</h2>
-                    {/* <p className="tasks-count">{TasksLength(tasks, "1")}</p> */}
-                </div>
-                <div className="tasks-list">
-                    {projects.map((project, index) => {
-                        return (
-                            <div className='task-todo'>
-                                <ProjectListItem key={index} project={project} />
-                            </div>
-                        )
-                    })}
-                </div>
-
-                <AddProjectButton />
+        <div >
+            <div className="tasks-header">
+                <h2 className="tasks-title">&#9782;All projects</h2>
             </div>
+            <div className="projects-column">
+
+                {/* <p className="tasks-count">{TasksLength(tasks, "1")}</p> */}
+            </div>
+            <div className="tasks-list">
+                {projects.map((project, index) => {
+                    return (
+                        <ProjectListItem key={index} project={project} />
+                    )
+                })}
+            </div>
+            <AddProjectButton />
         </div>
     )
 }

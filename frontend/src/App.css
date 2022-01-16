@@ -123,8 +123,54 @@ a {
   padding: 16px;
 }
 
+/*==============================
+=>  Project list Styles
+================================*/
 
-/* NOTES STYLES */
+.projects-column {
+  margin: 20px 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 900;
+  width: 50%;
+}
+
+
+/*==============================
+=>  Project Styles
+================================*/
+
+.project-list-item h1 {
+  font-size: 70px !important;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.project-list-item h3 {
+  font-size: 32px !important;
+  font-weight: 100;
+  padding: 23px 0px;
+}
+
+.project-list-item {
+  border: 1px solid transparent;
+  margin: 0px 40px;
+  margin-bottom: 12px;
+  padding: 8px 36px;
+  transition: all 0.1s ease-in-out;
+  background-color: rgba(55, 147, 184, 0.705);
+  border-radius: 25px;
+}
+
+.project-list-item:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+/*==============================
+=>  Task list Styles
+================================*/
 
 .tasks-header {
   background-color: var(--color-white);

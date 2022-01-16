@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
 import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg'
+import { useHistory } from "react-router-dom";
 
 let getTime = (task) => {
     return new Date(task.updated).toLocaleDateString()
 }
-
 
 let getTitle = (task) => {
 
@@ -20,8 +20,8 @@ let getTitle = (task) => {
 let getBody = (task) => {
 
     let title = task.body.split('\n')[0]
-    if (title.length > 45) {
-        return title.slice(0, 45)
+    if (title.length > 100) {
+        return title.slice(0, 100) + "..."
     }
     return title
 }
@@ -42,34 +42,22 @@ let getPriority = (task) => {
     }
 }
 
-let getContent = (task) => {
-    let title = getTitle(task)
-    let content = task.body.replaceAll('\n', ' ')
-    content = content.replaceAll(title, '')
-
-    if (content.length > 45) {
-        return content.slice(0, 45) + '...'
-    } else {
-        return content
-    }
-}
-
-let handleLeft = (task) => {
+let handleLeft = (task, useHist, projectId) => {
     let category = parseInt(task.category, 10)
     if (category > 1) {
         task.category = (category - 1) + ""
         updateTask(task);
-        window.location.reload(false);
+        useHist.push(`/${projectId}/tasks`)
     }
 
 }
 
-let handleRight = (task) => {
+let handleRight = (task, useHist, projectId) => {
     let category = parseInt(task.category, 10)
     if (category < 4) {
         task.category = (category + 1) + ""
         updateTask(task);
-        window.location.reload(false);
+        useHist.push(`/${projectId}/tasks`)
     }
 
 }
@@ -84,7 +72,9 @@ let updateTask = async (task) => {
     })
 }
 
-const TaskListItem = ({ task }) => {
+const TaskListItem = ({ task, match }) => {
+    const useHist = useHistory();
+    let projectId = parseInt((match.url).match(/\d+/)[0])
     return (
         <div>
             <div>
@@ -92,14 +82,14 @@ const TaskListItem = ({ task }) => {
                     <Link to={`tasks/${task.id}`}>
                         <h1>{getTitle(task)}</h1>
 
-                        <h3>{getContent(task)}</h3>
+                        <h3>{getBody(task)}</h3>
                         <p><span>{getPriority(task)}</span>{getTime(task)}</p>
                     </Link>
 
                 </div>
                 <div className="tasks-arrows">
-                    <ArrowLeft cursor="pointer" onClick={() => handleLeft(task)} />
-                    <ArrowRight cursor="pointer" onClick={() => handleRight(task)} />
+                    <ArrowLeft cursor="pointer" onClick={() => handleLeft(task, useHist, projectId)} />
+                    <ArrowRight cursor="pointer" onClick={() => handleRight(task, useHist, projectId)} />
                 </div>
 
 
