@@ -58,18 +58,20 @@ let handleLeft = (task) => {
     let category = parseInt(task.category, 10)
     if (category > 1) {
         task.category = (category - 1) + ""
+        updateTask(task);
+        window.location.reload(false);
     }
-    updateTask(task);
-    window.location.reload(false);
+
 }
 
 let handleRight = (task) => {
     let category = parseInt(task.category, 10)
     if (category < 4) {
         task.category = (category + 1) + ""
+        updateTask(task);
+        window.location.reload(false);
     }
-    updateTask(task);
-    window.location.reload(false);
+
 }
 
 let updateTask = async (task) => {
@@ -81,13 +83,6 @@ let updateTask = async (task) => {
         body: JSON.stringify(task)
     })
 }
-
-
-
-// let handleRight = () => {
-//     updateTask()
-//     history.push('/')
-// }
 
 const ListItem = ({ task }) => {
     return (
@@ -103,8 +98,8 @@ const ListItem = ({ task }) => {
 
                 </div>
                 <div className="tasks-arrows">
-                    <ArrowLeft onClick={() => handleLeft(task)} />
-                    <ArrowRight onClick={() => handleRight(task)} />
+                    <ArrowLeft cursor="pointer" onClick={() => handleLeft(task)} />
+                    <ArrowRight cursor="pointer" onClick={() => handleRight(task)} />
                 </div>
 
 

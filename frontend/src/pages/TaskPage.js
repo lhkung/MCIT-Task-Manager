@@ -91,17 +91,17 @@ const TaskPage = ({ match, history }) => {
 
             </div>
             <div className="task-detail">
-                <h1>Title</h1>
+                <h5>Title</h5>
                 <textarea className='task-textarea-title' onChange={(e) => { handleChange(e.target.value, "title") }} value={task?.title}></textarea>
             </div>
 
             <div className="task-detail">
-                <h1>Content</h1>
+                <h5>Content</h5>
                 <textarea onChange={(e) => { handleChange(e.target.value, "body") }} value={task?.body}></textarea>
             </div>
 
             <div className="task-detail">
-                <h1>Category</h1>
+                <h5>Category</h5>
                 <select className="task-droplist" onChange={(e) => { handleChange(e.target.value, "category") }} value={task?.category}>
                     <option value="1">To do</option>
                     <option value="2">Ongoing</option>
@@ -111,7 +111,7 @@ const TaskPage = ({ match, history }) => {
             </div>
 
             <div className="task-detail">
-                <h1>Priority</h1>
+                <h5>Priority</h5>
                 <select className="task-droplist" onChange={(e) => { handleChange(e.target.value, "priority") }} value={task?.priority}>
                     <option value="1">Urgent</option>
                     <option value="2">Semi-urgent</option>
@@ -124,7 +124,7 @@ const TaskPage = ({ match, history }) => {
                 <h1>Ownership</h1>
             </div>
             <div className="task-detail">
-                <h1>Deadline</h1>
+                <h5>Deadline</h5>
             </div>
         </div>
 

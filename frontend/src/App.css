@@ -4,6 +4,18 @@
 h1 {
   color: #fff;
   font-size: 25px !important;
+
+}
+
+h5 {
+  color: #fff;
+  font-size: 25px !important;
+  margin-bottom: 12px;
+}
+
+h2 {
+  color: #fff;
+  font-size: 25px !important;
 }
 
 
@@ -297,7 +309,7 @@ a {
 }
 
 .task-textarea-title {
-  height: 40px !important;
+  height: 50px !important;
   width: 40% !important;
 }
 
