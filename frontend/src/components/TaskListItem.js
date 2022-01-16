@@ -84,12 +84,12 @@ let updateTask = async (task) => {
     })
 }
 
-const ListItem = ({ task }) => {
+const TaskListItem = ({ task }) => {
     return (
         <div>
             <div>
                 <div className="tasks-list-item" >
-                    <Link to={`/task/${task.id}`}>
+                    <Link to={`tasks/${task.id}`}>
                         <h1>{getTitle(task)}</h1>
 
                         <h3>{getContent(task)}</h3>
@@ -113,4 +113,4 @@ const ListItem = ({ task }) => {
 
 }
 
-export default ListItem
+export default TaskListItem

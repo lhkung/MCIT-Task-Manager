@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import ListItem from '../components/ListItem'
-import AddButton from '../components/AddButton'
-import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
+import TaskListItem from '../components/TaskListItem'
+import AddTaskButton from '../components/AddTaskButton'
+import { useHistory } from "react-router-dom";
 
-const TasksListPage = () => {
-
+const TasksListPage = ({ match }) => {
+    const useHist = useHistory();
+    let projectId = parseInt((match.url).match(/\d+/)[0])
     let [tasks, setTasks] = useState([])
 
     useEffect(() => {
         getTasks()
     }, [])
 
-    const TasksLength = (tasks, category) => {
+    const TasksLength = (tasks, category, projectId) => {
         let count = 0;
         tasks.map((task, index) => {
-            if (task.category === category) {
+            if (task.category === category && projectId === task.project) {
                 count++;
             }
         })
@@ -29,81 +30,84 @@ const TasksListPage = () => {
     }
 
     return (
-        <div className="tasks-list-all">
-
-            <div className="tasks-column">
-                <div className="tasks-header">
-                    <h2 className="tasks-title">&#9782;To do</h2>
-                    <p className="tasks-count">{TasksLength(tasks, "1")}</p>
-                </div>
-                <div className="tasks-list">
-                    {tasks.map((task, index) => {
-                        if (task.category === "1") {
-                            return (
-                                <div className='task-todo'>
-                                    <ListItem key={index} task={task} />
-                                </div>
-                            )
-                        }
-                    })}
-                </div>
-            </div>
-
-            <div className="tasks-column">
-                <div className="tasks-header">
-                    <h2 className="tasks-title">&#9782; Ongoing</h2>
-                    <p className="tasks-count">{TasksLength(tasks, "2")}</p>
-                </div>
-                <div className="tasks-list">
-                    {tasks.map((task, index) => {
-                        if (task.category === "2") {
-                            return (
-                                <div>
-                                    <div className='task-ongoing'>
-                                        <ListItem key={index} task={task} />
+        <div>
+            <button onClick={() => useHist.goBack()}>Go Back</button>
+            <div className="tasks-list-all">
+                <div className="tasks-column">
+                    <div className="tasks-header">
+                        <h2 className="tasks-title">&#9782;To do</h2>
+                        <p className="tasks-count">{TasksLength(tasks, "1", projectId)}</p>
+                    </div>
+                    <div className="tasks-list">
+                        {tasks.map((task, index) => {
+                            console.log(task)
+                            if (task.category === "1" && projectId === task.project) {
+                                return (
+                                    <div className='task-todo'>
+                                        <TaskListItem key={index} task={task} />
                                     </div>
-                                </div>
-                            )
-                        }
-                    })}
+                                )
+                            }
+                        })}
+                    </div>
                 </div>
-            </div>
 
-            <div className="tasks-column">
-                <div className="tasks-header">
-                    <h2 className="tasks-title">&#9782; Completed</h2>
-                    <p className="tasks-count">{TasksLength(tasks, "3")}</p>
+                <div className="tasks-column">
+                    <div className="tasks-header">
+                        <h2 className="tasks-title">&#9782; Ongoing</h2>
+                        <p className="tasks-count">{TasksLength(tasks, "2", projectId)}</p>
+                    </div>
+                    <div className="tasks-list">
+                        {tasks.map((task, index) => {
+                            if (task.category === "2" && projectId === task.project) {
+                                return (
+                                    <div>
+                                        <div className='task-ongoing'>
+                                            <TaskListItem key={index} task={task} />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        })}
+                    </div>
                 </div>
-                <div className="tasks-list">
-                    {tasks.map((task, index) => {
-                        if (task.category === "3") {
-                            return (
-                                <div className='task-completed'>
-                                    <ListItem key={index} task={task} />
-                                </div>
-                            )
-                        }
-                    })}
-                </div>
-            </div>
 
-            <div className="tasks-column">
-                <div className="tasks-header">
-                    <h2 className="tasks-title">&#9782; Reviewed</h2>
-                    <p className="tasks-count">{TasksLength(tasks, "4")}</p>
+                <div className="tasks-column">
+                    <div className="tasks-header">
+                        <h2 className="tasks-title">&#9782; Completed</h2>
+                        <p className="tasks-count">{TasksLength(tasks, "3", projectId)}</p>
+                    </div>
+                    <div className="tasks-list">
+                        {tasks.map((task, index) => {
+                            if (task.category === "3" && projectId === task.project) {
+                                return (
+                                    <div className='task-completed'>
+                                        <TaskListItem key={index} task={task} />
+                                    </div>
+                                )
+                            }
+                        })}
+                    </div>
                 </div>
-                <div className="tasks-list">
-                    {tasks.map((task, index) => {
-                        if (task.category === "4") {
-                            return (
-                                <div className='task-reviewed'>
-                                    <ListItem key={index} task={task} />
-                                </div>
-                            )
-                        }
-                    })}
+
+                <div className="tasks-column">
+                    <div className="tasks-header">
+                        <h2 className="tasks-title">&#9782; Reviewed</h2>
+                        <p className="tasks-count">{TasksLength(tasks, "4", projectId)}</p>
+                    </div>
+                    <div className="tasks-list">
+                        {tasks.map((task, index) => {
+                            if (task.category === "4" && projectId === task.project) {
+                                return (
+                                    <div className='task-reviewed'>
+                                        <TaskListItem key={index} task={task} />
+                                    </div>
+                                )
+                            }
+                        })}
+                    </div>
+                    <AddTaskButton />
                 </div>
-                <AddButton />
             </div>
         </div>
     )

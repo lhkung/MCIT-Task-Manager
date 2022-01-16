@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as AddIcon } from '../assets/add.svg'
 
 
-const AddButton = () => {
+const AddProjectButton = () => {
     return (
-        <Link to="/task/new" className="floating-button">
+        <Link to="/new" className="floating-button">
             <AddIcon />
         </Link>
     )
 }
 
-export default AddButton
+export default AddProjectButton

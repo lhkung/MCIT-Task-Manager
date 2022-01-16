@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
 import { Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const TaskPage = ({ match, history }) => {
+    const useHist = useHistory();
+    let projectId = parseInt((match.url).match(/\d+/)[0])
 
     let taskId = match.params.id
-    let [task, setTask] = useState({ category: '1', priority: '1' })
+    let [task, setTask] = useState({ project_id: projectId, category: '1', priority: '1' })
 
     useEffect(() => {
         getTask()
@@ -49,7 +52,7 @@ const TaskPage = ({ match, history }) => {
                 'Content-Type': 'application/json'
             }
         })
-        history.push('/')
+        useHist.goBack()
     }
 
     let handleSubmit = () => {
@@ -61,7 +64,7 @@ const TaskPage = ({ match, history }) => {
         } else if (taskId === 'new' && task.body !== '' && task.title !== '') {
             createTask()
         }
-        history.push('/')
+        useHist.goBack()
     }
 
     let handleChange = (input, inputType) => {
@@ -74,7 +77,6 @@ const TaskPage = ({ match, history }) => {
         } else if (inputType === "priority") {
             setTask(task => ({ ...task, 'priority': input }))
         }
-        console.log('Handle Change:', task)
     }
 
     return (
@@ -99,6 +101,16 @@ const TaskPage = ({ match, history }) => {
                 <h5>Content</h5>
                 <textarea onChange={(e) => { handleChange(e.target.value, "body") }} value={task?.body}></textarea>
             </div>
+
+            {/* <div className="task-detail">
+                <h5>Project</h5>
+                <select className="task-droplist" onChange={(e) => { handleChange(e.target.value, "project") }} value={task?.project}>
+                    <option value="Project 1">Project 1</option>
+                    <option value="Project 2">Project 2</option>
+                    <option value="Project 3">Project 3</option>
+                    <option value="Project 4">Project 4</option>
+                </select>
+            </div> */}
 
             <div className="task-detail">
                 <h5>Category</h5>

@@ -7,6 +7,7 @@ from .models import Task
 from .serializers import TaskSerializer
 from api import serializers
 from .utils import updateTask, getTaskDetail, deleteTask, getTasksList, createTask
+from .utils import updateProject, getProjectDetail, deleteProject, getProjectsList, createProject
 # Create your views here.
 
 
@@ -44,6 +45,37 @@ def getRoutes(request):
             'body': None,
             'description': 'Deletes and exiting task'
         },
+        {
+            'Endpoint': '/tasks/',
+            'method': 'GET',
+            'body': None,
+            'description': 'Returns an array of tasks'
+        },
+
+        {
+            'Endpoint': '/projects/id',
+            'method': 'GET',
+            'body': None,
+            'description': 'Returns a single project object'
+        },
+        {
+            'Endpoint': '/projects/create/',
+            'method': 'POST',
+            'body': {'body': ""},
+            'description': 'Creates new project with data sent in post request'
+        },
+        {
+            'Endpoint': '/projects/id/update/',
+            'method': 'PUT',
+            'body': {'body': ""},
+            'description': 'Creates an existing project with data sent in post request'
+        },
+        {
+            'Endpoint': '/projects/id/delete/',
+            'method': 'DELETE',
+            'body': None,
+            'description': 'Deletes and exiting project'
+        },
     ]
     return Response(routes)
 
@@ -77,30 +109,26 @@ def getTask(request, pk):
         return deleteTask(request, pk)
 
 
-# @api_view(['POST'])
-# def createTask(request):
-#     data = request.data
-#     task = Task.objects.create(
-#         body=data['body']
-#     )
-#     serializer = TaskSerializer(task, many=False)
-#     return Response(serializer.data)
+############################################################
+
+@api_view(['GET', 'POST'])
+def getProjects(request):
+
+    if request.method == 'GET':
+        return getProjectsList(request)
+
+    if request.method == 'POST':
+        return createProject(request)
 
 
-# @api_view(['PUT'])
-# def updateTask(request, pk):
-#     data = request.data
-#     task = Task.objects.get(id=pk)
-#     serializer = TaskSerializer(instance=task, data=data)
+@api_view(['GET', 'PUT', 'DELETE'])
+def getProject(request, pk):
 
-#     if serializer.is_valid():
-#         serializer.save()
+    if request.method == 'GET':
+        return getProjectDetail(request, pk)
 
-#     return Response(serializer.data)
+    if request.method == 'PUT':
+        return updateProject(request, pk)
 
-
-# @api_view(['DELETE'])
-# def deleteTask(request, pk):
-#     task = Task.objects.get(id=pk)
-#     task.delete()
-#     return Response('Task was deleted!')
+    if request.method == 'DELETE':
+        return deleteProject(request, pk)
