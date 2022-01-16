@@ -22,7 +22,8 @@ def createTask(request):
         body=data['body'],
         title=data['title'],
         category=data['category'],
-        priority=data['priority']
+        priority=data['priority'],
+        project=data['project']
     )
     serializer = TaskSerializer(task, many=False)
     return Response(serializer.data)

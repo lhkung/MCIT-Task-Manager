@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const TaskPage = ({ match, history }) => {
 
     let taskId = match.params.id
-    let [task, setTask] = useState({ category: 'To-do', priority: '1' })
+    let [task, setTask] = useState({ category: 'To-do', priority: '1', project: 'Project1' })
 
     useEffect(() => {
         getTask()
@@ -73,6 +73,8 @@ const TaskPage = ({ match, history }) => {
             setTask(task => ({ ...task, 'category': input }))
         } else if (inputType === "priority") {
             setTask(task => ({ ...task, 'priority': input }))
+        } else if (inputType === "project") {
+            setTask(task => ({ ...task, 'project': input }))
         }
         console.log('Handle Change:', task)
     }
@@ -117,6 +119,14 @@ const TaskPage = ({ match, history }) => {
                     <option value="2">Semi-urgent</option>
                     <option value="3">Non-urgent</option>
                     <option value="4">Stretch Goal</option>
+                </select>
+            </div>
+
+            <div className="task-detail">
+                <h1>Project</h1>
+                <select className="task-droplist" onChange={(e) => { handleChange(e.target.value, "project") }} value={task?.project}>
+                    <option value="Project1">Project1</option>
+                    <option value="Project2">Project2</option>
                 </select>
             </div>
 

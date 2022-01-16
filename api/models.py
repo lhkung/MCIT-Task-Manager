@@ -7,6 +7,7 @@ class Task(models.Model):
     # added new field for title
     body = models.TextField(null=True, blank=True)
     title = models.TextField(null=True, blank=True)
+    project = models.TextField(null=True, blank=True)
     category = models.TextField(null=True, blank=True)
     priority = models.TextField(null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)

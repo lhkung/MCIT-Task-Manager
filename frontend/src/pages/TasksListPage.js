@@ -30,7 +30,6 @@ const TasksListPage = () => {
 
     return (
         <div className="tasks-list-all">
-
             <div className="tasks-column">
                 <div className="tasks-header">
                     <h2 className="tasks-title">&#9782;To do</h2>
