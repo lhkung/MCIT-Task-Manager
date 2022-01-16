@@ -8,6 +8,7 @@ class Project(models.Model):
     description = models.TextField(null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+    session_key = models.TextField(null=True, blank=True)
 
     # changed to return a list of title and body
     def __str__(self):
@@ -23,6 +24,7 @@ class Task(models.Model):
     priority = models.TextField(null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+    session_key = models.TextField(null=True, blank=True)
 
     # changed to return a list of title and body
     def __str__(self):

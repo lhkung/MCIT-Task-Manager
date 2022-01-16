@@ -7,7 +7,7 @@ from .serializers import ProjectSerializer
 
 def getTasksList(request):
     order_by_list = ['priority', 'created', 'title']
-    tasks = Task.objects.all().order_by(*order_by_list)
+    tasks = Task.objects.filter(session_key=request.session.session_key).order_by(*order_by_list)
     serializer = TaskSerializer(tasks, many=True)
     return Response(serializer.data)
 
@@ -19,13 +19,16 @@ def getTaskDetail(request, pk):
 
 
 def createTask(request):
+    if not request.session.session_key:
+        request.session.save()
     data = request.data
     task = Task.objects.create(
         body=data['body'],
         title=data['title'],
         project_id=data['project_id'],
         category=data['category'],
-        priority=data['priority']
+        priority=data['priority'],
+        session_key = request.session.session_key
     )
     serializer = TaskSerializer(task, many=False)
     return Response(serializer.data)
@@ -65,7 +68,7 @@ def getTaskDetail(request, pk):
 
 def getProjectsList(request):
     order_by_list = ['created', 'project']
-    projects = Project.objects.all().order_by(*order_by_list)
+    projects = Project.objects.filter(session_key=request.session.session_key).order_by(*order_by_list)
     serializer = ProjectSerializer(projects, many=True)
     return Response(serializer.data)
 
@@ -77,10 +80,13 @@ def getProjectDetail(request, pk):
 
 
 def createProject(request):
+    if not request.session.session_key:
+        request.session.save()
     data = request.data
     project = Project.objects.create(
         project=data['project'],
         description=data['description'],
+        session_key = request.session.session_key
     )
     serializer = ProjectSerializer(project, many=False)
     return Response(serializer.data)
