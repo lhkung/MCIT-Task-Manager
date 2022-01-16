@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const TaskPage = ({ match, history }) => {
 
     let taskId = match.params.id
-    let [task, setTask] = useState({ category: 'To-do', priority: '1' })
+    let [task, setTask] = useState({ category: '1', priority: '1' })
 
     useEffect(() => {
         getTask()
@@ -103,10 +103,10 @@ const TaskPage = ({ match, history }) => {
             <div className="task-detail">
                 <h1>Category</h1>
                 <select className="task-droplist" onChange={(e) => { handleChange(e.target.value, "category") }} value={task?.category}>
-                    <option value="To-do">To do</option>
-                    <option value="Ongoing">Ongoing</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Reviewed">Reviewed</option>
+                    <option value="1">To do</option>
+                    <option value="2">Ongoing</option>
+                    <option value="3">Completed</option>
+                    <option value="4">Reviewed</option>
                 </select>
             </div>
 

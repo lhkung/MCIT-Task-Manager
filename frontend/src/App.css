@@ -163,6 +163,7 @@ a {
 .tasks-column {
   padding-left: 10px;
   padding-right: 10px;
+  z-index: 900;
   width: 25%;
 }
 
@@ -223,6 +224,14 @@ a {
   justify-content: center;
   cursor: pointer;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tasks-arrows {
+  display: flex;
+  padding: 0px 15px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 

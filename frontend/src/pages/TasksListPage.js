@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ListItem from '../components/ListItem'
 import AddButton from '../components/AddButton'
-
+import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
 
 const TasksListPage = () => {
 
@@ -34,11 +34,11 @@ const TasksListPage = () => {
             <div className="tasks-column">
                 <div className="tasks-header">
                     <h2 className="tasks-title">&#9782;To do</h2>
-                    <p className="tasks-count">{TasksLength(tasks, "To-do")}</p>
+                    <p className="tasks-count">{TasksLength(tasks, "1")}</p>
                 </div>
                 <div className="tasks-list">
                     {tasks.map((task, index) => {
-                        if (task.category === "To-do") {
+                        if (task.category === "1") {
                             return (
                                 <div className='task-todo'>
                                     <ListItem key={index} task={task} />
@@ -52,14 +52,16 @@ const TasksListPage = () => {
             <div className="tasks-column">
                 <div className="tasks-header">
                     <h2 className="tasks-title">&#9782; Ongoing</h2>
-                    <p className="tasks-count">{TasksLength(tasks, "Ongoing")}</p>
+                    <p className="tasks-count">{TasksLength(tasks, "2")}</p>
                 </div>
                 <div className="tasks-list">
                     {tasks.map((task, index) => {
-                        if (task.category === "Ongoing") {
+                        if (task.category === "2") {
                             return (
-                                <div className='task-ongoing'>
-                                    <ListItem key={index} task={task} />
+                                <div>
+                                    <div className='task-ongoing'>
+                                        <ListItem key={index} task={task} />
+                                    </div>
                                 </div>
                             )
                         }
@@ -70,11 +72,11 @@ const TasksListPage = () => {
             <div className="tasks-column">
                 <div className="tasks-header">
                     <h2 className="tasks-title">&#9782; Completed</h2>
-                    <p className="tasks-count">{TasksLength(tasks, "Completed")}</p>
+                    <p className="tasks-count">{TasksLength(tasks, "3")}</p>
                 </div>
                 <div className="tasks-list">
                     {tasks.map((task, index) => {
-                        if (task.category === "Completed") {
+                        if (task.category === "3") {
                             return (
                                 <div className='task-completed'>
                                     <ListItem key={index} task={task} />
@@ -88,11 +90,11 @@ const TasksListPage = () => {
             <div className="tasks-column">
                 <div className="tasks-header">
                     <h2 className="tasks-title">&#9782; Reviewed</h2>
-                    <p className="tasks-count">{TasksLength(tasks, "Reviewed")}</p>
+                    <p className="tasks-count">{TasksLength(tasks, "4")}</p>
                 </div>
                 <div className="tasks-list">
                     {tasks.map((task, index) => {
-                        if (task.category === "Reviewed") {
+                        if (task.category === "4") {
                             return (
                                 <div className='task-reviewed'>
                                     <ListItem key={index} task={task} />
@@ -103,9 +105,6 @@ const TasksListPage = () => {
                 </div>
                 <AddButton />
             </div>
-
-
-
         </div>
     )
 }

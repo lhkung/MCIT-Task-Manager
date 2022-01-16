@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
+import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg'
 
 let getTime = (task) => {
     return new Date(task.updated).toLocaleDateString()
@@ -52,20 +54,64 @@ let getContent = (task) => {
     }
 }
 
+let handleLeft = (task) => {
+    let category = parseInt(task.category, 10)
+    if (category > 1) {
+        task.category = (category - 1) + ""
+    }
+    updateTask(task);
+    window.location.reload(false);
+}
+
+let handleRight = (task) => {
+    let category = parseInt(task.category, 10)
+    if (category < 4) {
+        task.category = (category + 1) + ""
+    }
+    updateTask(task);
+    window.location.reload(false);
+}
+
+let updateTask = async (task) => {
+    fetch(`/api/tasks/${task.id}/`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    })
+}
+
+
+
+// let handleRight = () => {
+//     updateTask()
+//     history.push('/')
+// }
 
 const ListItem = ({ task }) => {
     return (
-        <Link to={`/task/${task.id}`}>
-            <div className="tasks-list-item" >
-                <h1>{getTitle(task)}</h1>
-                <h3>{getBody(task)}</h3>
-                <h3>{getPriority(task)}</h3>
-                <p><span>{getTime(task)}</span>{getContent(task)}</p>
+        <div>
+            <div>
+                <div className="tasks-list-item" >
+                    <Link to={`/task/${task.id}`}>
+                        <h1>{getTitle(task)}</h1>
+
+                        <h3>{getContent(task)}</h3>
+                        <p><span>{getPriority(task)}</span>{getTime(task)}</p>
+                    </Link>
+
+                </div>
+                <div className="tasks-arrows">
+                    <ArrowLeft onClick={() => handleLeft(task)} />
+                    <ArrowRight onClick={() => handleRight(task)} />
+                </div>
+
+
+
             </div>
 
-        </Link>
-
-
+        </div>
     )
 
 
