@@ -20,7 +20,7 @@ function App() {
         <div className="app">
           <Header />
           <Route exact path="/" exact component={ProjectsListPage} />
-          {<Route exact path="/:id/tasks" exact component={TasksListPage} />}
+          <Route exact path="/:id/tasks" exact component={TasksListPage} />
           <Route exact path="/:id/tasks/:id" exact component={TaskPage} />
           <Route exact path="/:id/" component={ProjectPage} />
         </div>
