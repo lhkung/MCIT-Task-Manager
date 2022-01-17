@@ -11,16 +11,6 @@ const ProjectsListPage = () => {
         getProjects()
     }, [])
 
-    // const TasksLength = (tasks, category) => {
-    //     let count = 0;
-    //     tasks.map((task, index) => {
-    //         if (task.category === category) {
-    //             count++;
-    //         }
-    //     })
-    //     return count;
-    // }
-
     let getProjects = async () => {
 
         let response = await fetch('/api/projects/')

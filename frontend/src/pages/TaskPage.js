@@ -64,7 +64,6 @@ const TaskPage = ({ match, history }) => {
             createTask()
         }
         useHist.goBack()
-        window.location.reload()
     }
 
     let handleChange = (input, inputType) => {
