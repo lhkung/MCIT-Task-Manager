@@ -10,8 +10,6 @@ import TasksListPage from './pages/TasksListPage'
 import ProjectsListPage from './pages/ProjectsListPage'
 import TaskPage from './pages/TaskPage'
 import ProjectPage from './pages/ProjectPage'
-//import 'bootstrap/dist/css/bootstrap.css'
-
 
 function App() {
   return (

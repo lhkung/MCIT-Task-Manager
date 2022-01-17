@@ -60,7 +60,7 @@ const TaskPage = ({ match, history }) => {
             deleteTask()
         } else if (taskId !== 'new') {
             updateTask()
-        } else if (taskId === 'new' && task.body !== '' && task.title !== '') {
+        } else if (taskId === 'new' && task.title !== '') {
             createTask()
         }
         useHist.goBack()
@@ -103,16 +103,6 @@ const TaskPage = ({ match, history }) => {
                 <h5>Description</h5>
                 <textarea onChange={(e) => { handleChange(e.target.value, "body") }} value={task?.body}></textarea>
             </div>
-
-            {/* <div className="task-detail">
-                <h5>Project</h5>
-                <select className="task-droplist" onChange={(e) => { handleChange(e.target.value, "project") }} value={task?.project}>
-                    <option value="Project 1">Project 1</option>
-                    <option value="Project 2">Project 2</option>
-                    <option value="Project 3">Project 3</option>
-                    <option value="Project 4">Project 4</option>
-                </select>
-            </div> */}
 
             <div className="task-detail">
                 <h5>Category</h5>

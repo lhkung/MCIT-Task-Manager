@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
 
 let getTime = (project) => {
     return new Date(project.updated).toLocaleDateString()

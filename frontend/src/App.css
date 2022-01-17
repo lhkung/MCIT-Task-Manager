@@ -18,6 +18,9 @@ h2 {
   font-size: 25px !important;
 }
 
+ul {
+  padding-left: 3vh;
+}
 
 :root {
   --color-main: #f68657;
@@ -143,6 +146,13 @@ a {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+.intro-page {
+  color: rgb(255, 255, 255);
+  text-align: left;
+  font-size: 18vh !important;
+  padding: 5vh 10vh;
 }
 
 /*==============================
