@@ -31,19 +31,18 @@ const ProjectsListPage = () => {
     return (
         <div >
             <div className="tasks-header">
-                <h2 className="tasks-title">All projects</h2>
+                <h2 className="projects-header">All projects</h2>
             </div>
             <div className="projects-column">
+                <div className="tasks-list">
+                    {projects.map((project, index) => {
+                        return (
+                            <ProjectListItem key={index} project={project} />
+                        )
+                    })}
+                </div>
+            </div>
 
-                {/* <p className="tasks-count">{TasksLength(tasks, "1")}</p> */}
-            </div>
-            <div className="tasks-list">
-                {projects.map((project, index) => {
-                    return (
-                        <ProjectListItem key={index} project={project} />
-                    )
-                })}
-            </div>
             <AddProjectButton />
         </div>
     )

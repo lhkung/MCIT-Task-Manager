@@ -78,7 +78,6 @@ const ProjectPage = ({ match, history }) => {
 
     return (
         <div className="task" >
-
             <div className="task-header">
                 <h3>
                     <ArrowLeft onClick={() => useHist.push("/")} />

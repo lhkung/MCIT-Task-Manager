@@ -3,19 +3,20 @@
 
 h1 {
   color: #fff;
-  font-size: 25px !important;
-
+  font-size: 2.5vh !important;
+  margin-bottom: 0.5vh;
 }
 
 h5 {
   color: #fff;
-  font-size: 25px !important;
-  margin-bottom: 12px;
+  font-size: 2.5vh !important;
+  margin-bottom: 1vh;
 }
 
 h2 {
-  color: #fff;
-  font-size: 25px !important;
+  padding: 2vh !important;
+  color: var(--color-main);
+  font-size: 3vh !important;
 }
 
 
@@ -53,13 +54,14 @@ h2 {
   color: inherit;
   font-size: inherit;
   scroll-behavior: smooth;
+
 }
 
 
 body{
   line-height: 1.8em;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.2vh;
 }
 
 a {
@@ -80,99 +82,74 @@ a {
 
 
 .app {
-  width: 100%;
+  width: 60%;
   max-width: 1280px;
   height: 88vh;
-  margin: 0 auto;
+  margin: auto;
   background-color: var(--color-white);
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
-  position: relative;
+  box-shadow: 0.5vh 0.5vh 0.5vh rgba(0, 0, 0, 0.05);
+  border-radius: 2vh;
+  border: solid rgba(255, 255, 255, 0.767);
+  border-width: 1vh 1vh;
+  overflow-y: auto;
 }
 
 
 .app-header {
   display: flex;
   align-items: center;
-  padding: 25px;
+  padding: 1vh;
   justify-content: space-between;
   background-color: var(--color-lighter);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 1vh;
 }
 
 .app-header h1 {
-  font-size: 35px !important;
-  color: v#A8D0E6;
+  font-size: 3vh !important;
+  color: var(--color-dark);
   font-weight: 800;
   text-align: center;
 }
 
-.app-header button {
+.app-header-button {
+  color: var(--color-main) !important;
   border: 0;
   background: transparent;
   cursor: pointer;
+  font-size: 2vh !important;
+  padding: 0vh 1.5vh;
+  margin-bottom: 1vh;
 }
 
-.app-header button > svg {
-  fill: var(--color-dark);
-  height: 25px;
-  width: 25px;
-  object-fit: cover;
-}
-
-.app-body {
-  padding: 16px;
-}
-
-.app-droplist {
-  background-color: #4CAF50;
-  color: white;
-  padding: 5px;
-  font-size: 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.app-header-button {
-  background-color: #ffffff00;
-  border: none;
-  border-radius: 10px;
-  color: rgb(235, 163, 69);
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
 
 /*==============================
 =>  Project list Styles
 ================================*/
 
 .projects-column {
-  margin: 20px 0px;
-  padding-left: 20px;
-  padding-right: 20px;
-  z-index: 900;
-  width: 50%;
+  margin: 1vh 0vh;
+  padding-left: 3vh;
+  padding-right: 3vh;
+  width: 100%;
 }
 
 .project-edit-button {
   background-color: #4CAF50; /* Green */
   border: none;
-  border-radius: 15px;
+  border-radius: 2vh;
   color: white;
-  padding: 15px 32px;
+  padding: 1.5vh 2vh;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 2vh;
 }
 
 .project-edit-button:hover {
-  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 1vh 1vh rgba(255, 255, 255, 0.1);
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 2vh;
 }
 
 
@@ -181,94 +158,122 @@ a {
 ================================*/
 
 .project-list-item h1 {
-  font-size: 50px !important;
-  padding-top: 30px;
-  padding-bottom: 10px;
+  font-size: 4vh !important;
+  padding-top: 1.5vh;
+  padding-bottom: 1vh;
 }
 
 .project-list-item h3 {
-  font-size: 32px !important;
+  font-size: 2vh !important;
   font-weight: 100;
-  padding: 23px 0px;
+  padding: 1.5vh 0px;
 }
 
 .project-list-item p {
-  font-size: 20px !important;
+  font-size: 2vh !important;
   font-weight: 100;
   padding-left: 0px;
-  padding-bottom: 15px;
+  padding-bottom: 2vh;
 }
 
 .project-list-item {
-  border: 1px solid transparent;
-  margin: 0px 60px;
-  margin-bottom: 30px;
-  padding: 8px 36px;
+  border: 0.5vh solid transparent;
+  margin: 0vh 4vh;
+  margin-bottom: 3vh;
+  padding: 2vh 3vh;
   transition: all 0.1s ease-in-out;
   background-color: rgba(55, 147, 184, 0.705);
-  border-radius: 25px;
+  border-radius: 5vh;
 }
 
 .project-list-item:hover {
-  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 20vh 20vh rgba(255, 255, 255, 0.1);
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: 5vh;
 }
 
 /*==============================
 =>  Task list Styles
 ================================*/
 
-.tasks-list-icon {
-  padding-top: 0px !important;
-  font-size: 50px !important;
-  padding-right: 10px !important;
-  color: var(--color-main)
+.tasks-list-page {
+  height: 100%;
 }
+
 
 .tasks-header {
   background-color: var(--color-white);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 16px;
-  padding-bottom: 5px;
+  padding: 0vh 0vh;
+}
+
+.tasks-header h3 {
+  display: flex;
+  align-items: center;
+  padding-top: 1vh;
+  font-size: 2vh;
+  cursor: pointer;
+}
+
+.project-droplist {
+  display: flex;
+  align-items: center;
+  font-size: 2vh;
+  cursor: pointer;
+  margin-top: 1vh;
+
+}
+
+.tasks-column-header {
+  display: flex !important;
 }
 
 .tasks-title,
 .tasks-count {
   color: var(--color-main);
-  font-size: 20px;
+  font-size: 2.5vh !important;
   font-weight: 600;
+  padding: 4vh 0vh !important;
 }
 
 .tasks-title {
   margin-right: auto;
+  padding-left: 1vh !important;
 }
 
 .tasks-count {
-  font-size: 22px;
+  font-size: 1vh;
   color: var(--color-gray);
+  padding-right: 1vh !important;
+}
+
+.tasks-list-icon {
+  margin-top: 3vh;
+  font-size: 4vh !important;
+  color: var(--color-main);
+  width: auto !important;
+  
 }
 
 .task-todo {
   background-color: rgb(221, 105, 125) !important;
-  border-radius: 25px;
+  border-radius: 3vh;
 }
 
 .task-ongoing {
   background-color: rgb(179, 173, 95) !important;
-  border-radius: 25px;
+  border-radius: 3vh;
 }
 
 .task-completed {
   background-color: #374785 !important;
-  border-radius: 25px;
+  border-radius: 3vh;
 }
 
 .task-reviewed {
   background-color: #61892F !important;
-  border-radius: 25px;
+  border-radius: 3vh;
 }
 
 .tasks-list-all {
@@ -277,15 +282,16 @@ a {
 }
 
 .tasks-column {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 1vh;
+  padding-right: 1vh;
   z-index: 900;
   width: 25%;
+  
 }
 
 .tasks-list {
-  margin: 16px 0;
-  height: 75vh;
+  margin: 0vh 0vh;
+  height: 80%;
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
   
@@ -296,43 +302,43 @@ a {
 }
 
 .tasks-list-item {
-  border: 1px solid transparent;
-  margin-bottom: 12px;
-  padding: 8px 36px;
+  border: 1vh solid transparent;
+  margin-bottom: 1vh;
+  padding: 1vh 1.5vh;
   transition: all 0.1s ease-in-out;
 }
 
 .tasks-list-item p, span {
-  font-size: 16px !important;
+  font-size: 1.5vh !important;
   color: white !important;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 1vh;
   font-weight: 600;
 }
 
 .tasks-list-item:hover {
-  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 20vh 20vh rgba(255, 255, 255, 0.1);
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: 3vh;
 }
 
 .tasks-list-item h3 {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 2vh;
 }
 
 
 .floating-button {
   font-size: 48px;
   position: absolute;
-  bottom: 24px;
-  right: 16px;
+  bottom: 10vh;
+  right: 40vh;
   background: var(--color-main);
   border: none;
-  width: 60px;
-  height: 60px;
+  width: 8vh;
+  height: 8vh;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -343,15 +349,20 @@ a {
 
 .tasks-arrows {
   display: flex;
-  padding: 0px 15px;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  justify-content: space-between;
+  padding: 0vh 1vh;
+  padding-bottom: 1vh;
+  margin-bottom: 1vh;
+  justify-content: space-between !important;
+
 }
 
 
 .floating-button > svg {
   fill: var(--color-bg);
+}
+
+.tasks-back-arrow {
+  fill: var(--color-main) !important;
 }
 
 /*==============================
@@ -361,15 +372,8 @@ a {
 .task-header {
   display: flex;
   align-items: center;
-  justify-content: start;
-  color:rgb(255, 255, 255);
-  padding: 10px;
-}
-
-.task-header h3 {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
+  padding-top: 1vh;
+  font-size: 2vh;
   cursor: pointer;
 }
 
@@ -389,30 +393,31 @@ a {
 }
 
 .task-detail {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  font-size: 24px;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 6vh;
+  font-size: 0.5vh;
 }
 
 .task-droplist {
-  font-size: 20px;
+  font-size: 2vh;
   color: black;
 }
 
 .task textarea {
   background-color: var(--color-lighter);
-  font-size: 20px;
+  font-size: 2vh;
   border-style: inset;
-  padding: 16px 12px;
+  padding: 2.5vh 2vh;
+  padding-top: 1.5vh;
   width: 70%;
-  height: 10vh;
+  height: 30vh;
   resize: none;
   scrollbar-width: none; /* Firefox */
 }
 
 .task-textarea-title {
-  height: 50px !important;
+  height: 1.7vh !important;
   width: 40% !important;
 }
 

@@ -38,7 +38,7 @@ let getPriority = (task) => {
         return "Non-urgent"
     }
     else if (task.priority === "4") {
-        return "Stretch Goals"
+        return "Stretch Goal"
     }
 }
 

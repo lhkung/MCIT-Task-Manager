@@ -67,13 +67,13 @@ const TasksListPage = ({ match }) => {
 
 
     return (
-        < div >
-            <div className="task-header">
+        < div className="tasks-list-page">
+            <div className="tasks-header">
                 <h3>
-                    <ArrowLeft onClick={() => useHist.push("/")}></ArrowLeft>
+                    <ArrowLeft className="tasks-back-arrow" onClick={() => useHist.push("/")}></ArrowLeft>
                 </h3>
                 <h3>&nbsp;Project: &nbsp;</h3>
-                <select className="task-droplist" value={proj.id} onChange={(e) => { handleProjectChange(e.target.value) }}>
+                <select className="project-droplist" value={proj.id} onChange={(e) => { handleProjectChange(e.target.value) }}>
                     {projects.map((project) => {
                         return (
                             <option value={project.id}>{project.project}</option>
@@ -86,7 +86,7 @@ const TasksListPage = ({ match }) => {
 
             <div className="tasks-list-all">
                 <div className="tasks-column">
-                    <div className="tasks-header">
+                    <div className="tasks-column-header">
                         <AiOutlineOrderedList className="tasks-list-icon" />
                         <h2 className="tasks-title">To do</h2>
                         <p className="tasks-count">{TasksLength(tasks, "1", projectId)}</p>
@@ -105,7 +105,7 @@ const TasksListPage = ({ match }) => {
                 </div>
 
                 <div className="tasks-column">
-                    <div className="tasks-header">
+                    <div className="tasks-column-header">
                         <RiRunFill className="tasks-list-icon" />
                         <h2 className="tasks-title">Ongoing</h2>
                         <p className="tasks-count">{TasksLength(tasks, "2", projectId)}</p>
@@ -126,7 +126,7 @@ const TasksListPage = ({ match }) => {
                 </div>
 
                 <div className="tasks-column">
-                    <div className="tasks-header">
+                    <div className="tasks-column-header">
                         <GiFinishLine className="tasks-list-icon" />
                         <h2 className="tasks-title">Completed</h2>
                         <p className="tasks-count">{TasksLength(tasks, "3", projectId)}</p>
@@ -145,7 +145,7 @@ const TasksListPage = ({ match }) => {
                 </div>
 
                 <div className="tasks-column">
-                    <div className="tasks-header">
+                    <div className="tasks-column-header">
                         <RiChatCheckFill className="tasks-list-icon" />
                         <h2 className="tasks-title">Reviewed</h2>
                         <p className="tasks-count">{TasksLength(tasks, "4", projectId)}</p>
