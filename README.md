@@ -1,56 +1,46 @@
-<div align="center">
-<img width="50%" src="http://i3.ytimg.com/vi/tYKRAXIio28/maxresdefault.jpg"/>
 
-# Django & React Tasks App
+# MCIT Task Manager
 </div>
 
-### Cloning the repository
+### Description:
 
---> Clone the repository using the command below :
-```bash
-git clone https://github.com/divanov11/Django-React-TasksApp.git
+A website where users can create a project, then a list of tasks for that project. The tasks are then organized via the Kanban Method.
 
-```
+Tasks are assigned to one of 4 categories: to-do, in progress, completed, reviewed.
 
---> Move into the directory where we have the project files : 
-```bash
-cd Django-React-TasksApp
+Users can move tasks between the 4 categories.
 
-```
+Deleting a project, automatically deleted all tasks associated with that project.
 
---> Create a virtual environment :
-```bash
-# If you are on Windows
-virtualenv env
-# If you are on Linux or Mac
-python -m venv env
-```
+### Technologies Used:
 
---> Activate the virtual environment :
-```bash
-# If you are on Windows
-.\env\Scripts\activate
-# If you are on Linux or Mac
-source env/bin/activate
-```
+Frontend: React.js, HTML, and CSS
 
-#
+Backend: Django
 
-### Running the App
+Database: SQLite
 
---> To run the Tasks App, we use :
-```bash
-python manage.py runserver
-```
+Website Deployment: PythonAnywhere
 
-> ⚠ Then, the development server will be started at http://127.0.0.1:8000/
+### Major Challenges:
 
-#
+Web Deployment
 
-### App Preview :
+Front-end and back-end interaction
 
-<div align="center">
-<img width="50%" src="https://www.linkpicture.com/q/Tasks.png"/>
-</div>
+Learning the nitty-gritty of full-stack development
 
-#
+Figuring out CSS for viewing on mobile devices
+
+
+### Potential features for future use:
+
+UI improvements (e.g. drag and drop functionality, using bootstrap for easier formatting)
+
+User logins / logouts
+
+Moving away from local databases
+
+Project should autocomplete once all tasks in given project are completed
+
+### Inspired By: https://github.com/divanov11/Django-React-NotesApp
