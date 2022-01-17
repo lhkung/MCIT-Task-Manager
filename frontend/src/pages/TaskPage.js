@@ -82,14 +82,17 @@ const TaskPage = ({ match, history }) => {
     return (
         <div className="task" >
             <div className="task-header">
+
                 <h3>
-                    <ArrowLeft onClick={handleSubmit} />
+                    <ArrowLeft onClick={() => useHist.push("/")} />
                 </h3>
-                {taskId !== 'new' ? (
-                    <button onClick={deleteTask}>Delete</button>
+                <button className="app-header-button" onClick={handleSubmit}>Save Changes</button>
+
+                {taskId === 'new' ? (
+                    ""
                 ) : (
-                    <button onClick={handleSubmit}>Done</button>
-                )}
+                    <button className="app-header-button" onClick={deleteTask}>Delete</button>
+                )} 
 
             </div>
             <div className="task-detail">

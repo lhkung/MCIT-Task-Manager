@@ -123,6 +123,28 @@ a {
   padding: 16px;
 }
 
+.app-droplist {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.app-header-button {
+  background-color: #ffffff00;
+  border: none;
+  border-radius: 10px;
+  color: rgb(235, 163, 69);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 /*==============================
 =>  Project list Styles
 ================================*/
@@ -133,6 +155,18 @@ a {
   padding-right: 20px;
   z-index: 900;
   width: 50%;
+}
+
+.project-edit-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 
@@ -304,8 +338,8 @@ a {
 .task-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  color: var(--color-main);
+  justify-content: start;
+  color:rgb(255, 255, 255);
   padding: 10px;
 }
 

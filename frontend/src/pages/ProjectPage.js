@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 
 const ProjectPage = ({ match, history }) => {
 
+    const useHist = useHistory();
+
     let projectId = match.params.id
     console.log(projectId)
     let [project, setProject] = useState({ project: '', description: '' })
@@ -79,12 +81,14 @@ const ProjectPage = ({ match, history }) => {
 
             <div className="task-header">
                 <h3>
-                    <ArrowLeft onClick={handleSubmit} />
+                    <ArrowLeft onClick={() => useHist.push("/")} />
                 </h3>
-                {projectId !== 'new' ? (
-                    <button onClick={deleteProject}>Delete</button>
+                <button className="app-header-button" onClick={handleSubmit}>Save Changes</button>
+
+                {projectId === 'new' ? (
+                    ""
                 ) : (
-                    <button onClick={handleSubmit}>Done</button>
+                    <button className="app-header-button" onClick={deleteProject}>Delete</button>
                 )}
 
             </div>

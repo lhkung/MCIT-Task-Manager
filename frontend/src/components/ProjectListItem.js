@@ -32,7 +32,9 @@ const ProjectListItem = ({ project }) => {
                 <h3>{getDescription(project)}</h3>
                 <p>{getTime(project)}</p>
             </Link>
-            <Link to={`${project.id}/`}>Make edit</Link>
+            <Link to={`${project.id}/`}>
+                <button class="project-edit-button">EDIT Project Details</button>
+            </Link>
         </div>
     )
 }
