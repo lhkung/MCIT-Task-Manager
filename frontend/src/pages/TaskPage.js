@@ -64,6 +64,7 @@ const TaskPage = ({ match, history }) => {
             createTask()
         }
         useHist.goBack()
+        window.location.reload()
     }
 
     let handleChange = (input, inputType) => {
@@ -82,7 +83,9 @@ const TaskPage = ({ match, history }) => {
         <div className="task" >
             <div className="task-header">
                 <h3>
-                    <ArrowLeft onClick={() => useHist.push(`/${projectId}/tasks`)} />
+                    <ArrowLeft onClick={() => {
+                        useHist.push(`/${projectId}/tasks`)
+                    }} />
                 </h3>
                 <button className="app-header-button" onClick={handleSubmit}>Save Changes</button>
 

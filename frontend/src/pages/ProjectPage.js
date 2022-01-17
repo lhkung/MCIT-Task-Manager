@@ -80,7 +80,10 @@ const ProjectPage = ({ match, history }) => {
         <div className="task" >
             <div className="task-header">
                 <h3>
-                    <ArrowLeft onClick={() => useHist.push("/")} />
+                    <ArrowLeft onClick={() => {
+                        useHist.push("/")
+                        window.location.reload()
+                    }} />
                 </h3>
                 <button className="app-header-button" onClick={handleSubmit}>Save Changes</button>
 

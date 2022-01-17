@@ -127,6 +127,20 @@ a {
 =>  Project list Styles
 ================================*/
 
+.intro-page {
+  padding: 3vh;
+}
+
+.intro-page body {
+  font-size: 2vh;
+  padding: 0vh 3vh;
+}
+
+.intro-page h2 {
+  text-decoration: underline;
+  color: white;
+}
+
 .projects-column {
   margin: 1vh 0vh;
   padding-left: 3vh;
@@ -187,7 +201,7 @@ a {
 }
 
 .project-list-item:hover {
-  box-shadow: inset 0 0 20vh 20vh rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 1vh 1vh rgba(255, 255, 255, 0.1);
   cursor: pointer;
   border-radius: 5vh;
 }
@@ -317,7 +331,7 @@ a {
 }
 
 .tasks-list-item:hover {
-  box-shadow: inset 0 0 20vh 20vh rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0.5vh 0.5vh rgba(255, 255, 255, 0.1);
   cursor: pointer;
   border-radius: 3vh;
 }
