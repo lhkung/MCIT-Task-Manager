@@ -101,7 +101,7 @@ a {
 
 .app-header h1 {
   font-size: 30px;
-  color: var(--color-dark);
+  color: v#A8D0E6;
   font-weight: 800;
   text-align: center;
 }
@@ -169,13 +169,19 @@ a {
   font-size: 16px;
 }
 
+.project-edit-button:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  border-radius: 15px;
+}
+
 
 /*==============================
 =>  Project Styles
 ================================*/
 
 .project-list-item h1 {
-  font-size: 70px !important;
+  font-size: 60px !important;
   padding-top: 30px;
   padding-bottom: 10px;
 }
@@ -186,10 +192,17 @@ a {
   padding: 23px 0px;
 }
 
+.project-list-item p {
+  font-size: 20px !important;
+  font-weight: 100;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
 .project-list-item {
   border: 1px solid transparent;
-  margin: 0px 40px;
-  margin-bottom: 12px;
+  margin: 0px 60px;
+  margin-bottom: 30px;
   padding: 8px 36px;
   transition: all 0.1s ease-in-out;
   background-color: rgba(55, 147, 184, 0.705);
@@ -238,12 +251,12 @@ a {
 }
 
 .task-completed {
-  background-color: rgba(35, 81, 207, 0.589) !important;
+  background-color: #374785 !important;
   border-radius: 25px;
 }
 
 .task-reviewed {
-  background-color: rgba(5, 170, 13, 0.582) !important;
+  background-color: #61892F !important;
   border-radius: 25px;
 }
 
@@ -278,28 +291,27 @@ a {
   transition: all 0.1s ease-in-out;
 }
 
+.tasks-list-item p, span {
+  font-size: 16px !important;
+  color: white !important;
+  display: inline-block;
+  margin-right: 8px;
+  font-weight: 600;
+}
+
 .tasks-list-item:hover {
   box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
   cursor: pointer;
   border-radius: 25px;
 }
 
-.tasks-list-item h3,
-.tasks-list-item p span {
-  font-weight: 600;
+.tasks-list-item h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 300;
+  font-size: 18px;
 }
 
-
-.tasks-list-item p span {
-  color: var(--color-gray);
-  display: inline-block;
-  margin-right: 8px;
-}
-
-.tasks-list-item p {
-  font-size: 14px;
-  color: var(--color-light);
-}
 
 .floating-button {
   font-size: 48px;

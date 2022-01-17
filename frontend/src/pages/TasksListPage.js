@@ -65,7 +65,9 @@ const TasksListPage = ({ match }) => {
     return (
         < div >
             <div className="task-header">
-                <ArrowLeft onClick={() => useHist.push("/")}></ArrowLeft>
+                <h3>
+                    <ArrowLeft onClick={() => useHist.push("/")}></ArrowLeft>
+                </h3>
                 <h3>&nbsp;Project: &nbsp;</h3>
                 <select className="task-droplist" value={proj.id} onChange={(e) => { handleProjectChange(e.target.value) }}>
                     {projects.map((project) => {
