@@ -93,7 +93,7 @@ const ProjectPage = ({ match, history }) => {
 
             </div>
             <div className="task-detail">
-                <h5>Project Name</h5>
+                <h5>Project</h5>
                 <textarea defaultValue="" className='task-textarea-title' onChange={(e) => { handleChange(e.target.value, "project") }} value={project?.project}></textarea>
             </div>
 

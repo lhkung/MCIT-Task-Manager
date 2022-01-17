@@ -93,14 +93,14 @@ a {
 .app-header {
   display: flex;
   align-items: center;
-  padding: 16px;
+  padding: 25px;
   justify-content: space-between;
   background-color: var(--color-lighter);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .app-header h1 {
-  font-size: 30px;
+  font-size: 35px !important;
   color: v#A8D0E6;
   font-weight: 800;
   text-align: center;

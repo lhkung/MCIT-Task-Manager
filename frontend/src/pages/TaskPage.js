@@ -95,12 +95,12 @@ const TaskPage = ({ match, history }) => {
 
             </div>
             <div className="task-detail">
-                <h5>Title</h5>
+                <h5>Task</h5>
                 <textarea className='task-textarea-title' onChange={(e) => { handleChange(e.target.value, "title") }} value={task?.title}></textarea>
             </div>
 
             <div className="task-detail">
-                <h5>Content</h5>
+                <h5>Description</h5>
                 <textarea onChange={(e) => { handleChange(e.target.value, "body") }} value={task?.body}></textarea>
             </div>
 
