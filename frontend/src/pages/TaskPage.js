@@ -84,7 +84,7 @@ const TaskPage = ({ match, history }) => {
             <div className="task-header">
 
                 <h3>
-                    <ArrowLeft onClick={() => useHist.push("/")} />
+                    <ArrowLeft onClick={() => useHist.push(`/${projectId}/tasks`)} />
                 </h3>
                 <button className="app-header-button" onClick={handleSubmit}>Save Changes</button>
 
@@ -92,7 +92,7 @@ const TaskPage = ({ match, history }) => {
                     ""
                 ) : (
                     <button className="app-header-button" onClick={deleteTask}>Delete</button>
-                )} 
+                )}
 
             </div>
             <div className="task-detail">

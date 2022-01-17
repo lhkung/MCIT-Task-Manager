@@ -9,6 +9,7 @@ const TasksListPage = ({ match }) => {
     let projectId = parseInt((match.url).match(/\d+/)[0])
     let [tasks, setTasks] = useState([])
     let [projects, setProjects] = useState([])
+    let [proj, setProject] = useState([])
 
     useEffect(() => {
         getTasks()
@@ -18,9 +19,13 @@ const TasksListPage = ({ match }) => {
         getProjects()
     }, [])
 
+    useEffect(() => {
+        getProject()
+    }, [])
+
     const TasksLength = (tasks, category, projectId) => {
         let count = 0;
-        tasks.map((task, index) => {
+        tasks.map((task) => {
             if (task.category === category && projectId === task.project) {
                 count++;
             }
@@ -29,7 +34,6 @@ const TasksListPage = ({ match }) => {
     }
 
     let getTasks = async () => {
-
         let response = await fetch('/api/tasks/')
         let data = await response.json()
         setTasks(data)
@@ -44,30 +48,34 @@ const TasksListPage = ({ match }) => {
 
     const handleProjectChange = (id) => {
         useHist.push(`/${id}/tasks`)
+        window.location.reload()
     }
 
-    let projectName = ""
-    projects.map((project) => {
-        if (project.id === projectId) {
-            projectName = project.project;
-            console.log(project.project)
-        }
-    })
+    let getProject = async () => {
+        let response = await fetch('/api/projects/')
+        let data = await response.json()
+        data.map((p) => {
+            if (p.id === projectId) {
+                setProject(p)
+            }
+        })
+    }
 
 
     return (
-        <div>
+        < div >
             <div className="task-header">
                 <ArrowLeft onClick={() => useHist.push("/")}></ArrowLeft>
-                <h3>&nbsp;Project:&nbsp;</h3>
-                <select className="task-droplist" defaultValue={projectName} onChange={(e) => { handleProjectChange(e.target.value) }}>
-                {projects.map((project) => {
-                    return (
-                        <option value={project.id}>{project.project}</option>
-                    )
-                }
-                )}
+                <h3>&nbsp;Project: &nbsp;</h3>
+                <select className="task-droplist" value={proj.id} onChange={(e) => { handleProjectChange(e.target.value) }}>
+                    {projects.map((project) => {
+                        return (
+                            <option value={project.id}>{project.project}</option>
+                        )
+                    }
+                    )}
                 </select>
+
             </div>
 
             <div className="tasks-list-all">
@@ -146,7 +154,7 @@ const TasksListPage = ({ match }) => {
                     <AddTaskButton />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
