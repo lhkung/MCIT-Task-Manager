@@ -30,7 +30,7 @@ const ProjectListItem = ({ project }) => {
             <Link to={`/${project.id}/tasks`}>
                 <h1>{getTitle(project)}</h1>
                 <h3>{getDescription(project)}</h3>
-                <p>{getTime(project)}</p>
+                <p>Updated: {getTime(project)}</p>
             </Link>
             <Link to={`${project.id}/`}>
                 <button class="project-edit-button">EDIT Project Details</button>

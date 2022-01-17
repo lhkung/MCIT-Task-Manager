@@ -83,7 +83,8 @@ const TaskListItem = ({ task, match }) => {
                         <h1>{getTitle(task)}</h1>
 
                         <h3>{getBody(task)}</h3>
-                        <p><span>{getPriority(task)}</span>{getTime(task)}</p>
+                        <p>{getPriority(task)}</p>
+                        <p>Updated: {getTime(task)}</p>
                     </Link>
 
                 </div>

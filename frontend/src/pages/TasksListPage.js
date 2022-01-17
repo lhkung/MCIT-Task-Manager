@@ -3,6 +3,10 @@ import TaskListItem from '../components/TaskListItem'
 import AddTaskButton from '../components/AddTaskButton'
 import { useHistory } from "react-router-dom";
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
+import { AiOutlineOrderedList } from 'react-icons/ai'
+import { RiRunFill } from 'react-icons/ri'
+import { GiFinishLine } from 'react-icons/gi'
+import { RiChatCheckFill } from 'react-icons/ri'
 
 const TasksListPage = ({ match }) => {
     const useHist = useHistory();
@@ -83,7 +87,8 @@ const TasksListPage = ({ match }) => {
             <div className="tasks-list-all">
                 <div className="tasks-column">
                     <div className="tasks-header">
-                        <h2 className="tasks-title">&#9782;To do</h2>
+                        <AiOutlineOrderedList className="tasks-list-icon" />
+                        <h2 className="tasks-title">To do</h2>
                         <p className="tasks-count">{TasksLength(tasks, "1", projectId)}</p>
                     </div>
                     <div className="tasks-list">
@@ -101,7 +106,8 @@ const TasksListPage = ({ match }) => {
 
                 <div className="tasks-column">
                     <div className="tasks-header">
-                        <h2 className="tasks-title">&#9782; Ongoing</h2>
+                        <RiRunFill className="tasks-list-icon" />
+                        <h2 className="tasks-title">Ongoing</h2>
                         <p className="tasks-count">{TasksLength(tasks, "2", projectId)}</p>
                     </div>
                     <div className="tasks-list">
@@ -121,7 +127,8 @@ const TasksListPage = ({ match }) => {
 
                 <div className="tasks-column">
                     <div className="tasks-header">
-                        <h2 className="tasks-title">&#9782; Completed</h2>
+                        <GiFinishLine className="tasks-list-icon" />
+                        <h2 className="tasks-title">Completed</h2>
                         <p className="tasks-count">{TasksLength(tasks, "3", projectId)}</p>
                     </div>
                     <div className="tasks-list">
@@ -139,7 +146,8 @@ const TasksListPage = ({ match }) => {
 
                 <div className="tasks-column">
                     <div className="tasks-header">
-                        <h2 className="tasks-title">&#9782; Reviewed</h2>
+                        <RiChatCheckFill className="tasks-list-icon" />
+                        <h2 className="tasks-title">Reviewed</h2>
                         <p className="tasks-count">{TasksLength(tasks, "4", projectId)}</p>
                     </div>
                     <div className="tasks-list">

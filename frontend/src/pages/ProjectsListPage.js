@@ -31,7 +31,7 @@ const ProjectsListPage = () => {
     return (
         <div >
             <div className="tasks-header">
-                <h2 className="tasks-title">&#9782;All projects</h2>
+                <h2 className="tasks-title">All projects</h2>
             </div>
             <div className="projects-column">
 

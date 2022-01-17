@@ -166,7 +166,7 @@ a {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .project-edit-button:hover {
@@ -181,7 +181,7 @@ a {
 ================================*/
 
 .project-list-item h1 {
-  font-size: 60px !important;
+  font-size: 50px !important;
   padding-top: 30px;
   padding-bottom: 10px;
 }
@@ -195,8 +195,8 @@ a {
 .project-list-item p {
   font-size: 20px !important;
   font-weight: 100;
-  padding-left: 10px;
-  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-bottom: 15px;
 }
 
 .project-list-item {
@@ -219,6 +219,13 @@ a {
 =>  Task list Styles
 ================================*/
 
+.tasks-list-icon {
+  padding-top: 0px !important;
+  font-size: 50px !important;
+  padding-right: 10px !important;
+  color: var(--color-main)
+}
+
 .tasks-header {
   background-color: var(--color-white);
   display: flex;
@@ -235,8 +242,12 @@ a {
   font-weight: 600;
 }
 
+.tasks-title {
+  margin-right: auto;
+}
+
 .tasks-count {
-  font-size: 18px;
+  font-size: 22px;
   color: var(--color-gray);
 }
 
